@@ -2,7 +2,9 @@
   "name": "cypress_test",
   "author": "Sokolov Oleksandr",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cypress run",
+    "test:headless": "cypress run --headless --browser chrome --config video=true,screenshotOnRunFailure=true",
+    "test:browser": "cypress open"
   },
   "devDependencies": {
     "axios": "^1.12.2",
