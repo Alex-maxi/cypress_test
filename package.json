@@ -1,0 +1,14 @@
+{
+  "name": "cypress_test",
+  "author": "Sokolov Oleksandr",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "axios": "^1.12.2",
+    "chai": "^4.3.7",
+    "chai-colors": "^1.0.1",
+    "cypress": "^14.5.4",
+    "mocha": "^10.2.0"
+  }
+}
