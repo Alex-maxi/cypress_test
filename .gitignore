@@ -20,7 +20,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-mochawesome.json*
+mochawesome.json
 
 # OS files
 .DS_Store
