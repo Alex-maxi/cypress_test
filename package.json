@@ -2,15 +2,29 @@
   "name": "cypress_test",
   "author": "Sokolov Oleksandr",
   "scripts": {
-    "test": "cypress run",
-    "test:headless": "cypress run --headless --browser chrome --config video=true,screenshotOnRunFailure=true",
-    "test:browser": "cypress open"
+    "mochawesome:merge": "npx mochawesome-merge \"cypress/results/mochawesome/*.json\" > mochawesome.json && npx marge mochawesome.json",
+    "junit:merge": "npx junit-merge -d cypress/results/junit -o cypress/results/junit/result.xml",
+    "delete:reports": "rm -r cypress/results/* || true",
+    "prereport": "npm run delete:reports",
+    "test:headless": "cypress run --headless --browser chrome --config video=false,screenshotOnRunFailure=true",
+    "test:browser": "cypress open",
+    "cypress:run": "npm run prereport && cypress run",
+    "cypress:e2e": "npm run cypress:run && npm run junit:merge && npm run mochawesome:merge",
+    "cypress:e2edocker": "docker start juice-shop || docker run -d --name juice-shop -p 3000:3000 bkimminich/juice-shop && npm run cypress:run && npm run junit:merge && npm run mochawesome:merge && docker stop juice-shop"
+
+    
   },
   "devDependencies": {
     "axios": "^1.12.2",
     "chai": "^4.3.7",
     "chai-colors": "^1.0.1",
     "cypress": "^14.5.4",
-    "mocha": "^10.2.0"
+    "cypress-multi-reporters": "^2.0.5",
+    "junit-merge": "^2.0.0",
+    "mocha": "^10.2.0",
+    "mocha-junit-reporter": "^2.2.1",
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.0.0",
+    "mochawesome-report-generator": "^6.3.0"
   }
 }

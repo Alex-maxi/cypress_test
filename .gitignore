@@ -37,6 +37,7 @@ coverage/
 dist/
 build/
 out/
+mochawesome-report/
 
 # Temporary files
 *.tmp
