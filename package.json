@@ -10,7 +10,7 @@
     "test:browser": "cypress open",
     "cypress:run": "npm run prereport && cypress run",
     "cypress:e2e": "npm run cypress:run && npm run junit:merge && npm run mochawesome:merge",
-    "cypress:e2e-Docker": "docker start juice-shop || docker run -d --name juice-shop -p 3000:3000 bkimminich/juice-shop && npm run cypress:run && npm run junit:merge && npm run mochawesome:merge && docker stop juice-shop"
+    "cypress:e2e-Docker": "docker start juice-shop || docker run -d --name juice-shop -p 8080:3000 bkimminich/juice-shop && npm run cypress:run && npm run junit:merge && npm run mochawesome:merge && docker stop juice-shop"
   },
   "devDependencies": {
     "axios": "^1.12.2",
